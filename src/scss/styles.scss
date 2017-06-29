@@ -1,0 +1,53 @@
+/* https://swimlane.gitbooks.io/ngx-datatable/introduction/themes.html */
+@import '../../node_modules/@swimlane/ngx-datatable/release/index.css';
+@import '../../node_modules/@swimlane/ngx-datatable/release/themes/material.css';
+@import '../../node_modules/@swimlane/ngx-datatable/release/assets/icons.css';
+
+/* https://www.npmjs.com/package/materialize-css */
+@import '../../node_modules/materialize-css/dist/css/materialize.css';
+
+/* https://www.npmjs.com/package/ng2-slim-loading-bar */
+@import '../../node_modules/ng2-slim-loading-bar/bundles/style.css';
+
+@media only screen and (min-width: 993px) {
+  .container {
+      width: 85%;
+  }
+}
+
+.btn-slim {
+  height: 25px;
+  line-height: 25px;
+}
+
+.btn {
+  text-transform: none;
+}
+
+.width40per {
+  width: 40%;
+}
+
+.width70per {
+  width: 70%;
+}
+
+nav i.icon-big {
+  font-size: 2.5rem;
+}
+
+.modal-trigger {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-floating i.small-1 {
+  font-size: 2.3rem;
+}
+
+.material-tooltip pre { 
+  text-align: left;
+}

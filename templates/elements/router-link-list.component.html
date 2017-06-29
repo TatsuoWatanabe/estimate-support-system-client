@@ -1,0 +1,31 @@
+<ul id="{{idAttr}}" class="{{classAttr}}">
+  <!-- Menu -->
+  <li><a class="subheader">{{Consts.Labels.menu}}</a></li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstProject}}">Something Menu1</a>
+  </li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstProject}}">Something Menu2</a>
+  </li>
+  <!-- Admin Menu -->
+  <li *ngIf="user?.admin"><div class="divider"></div></li>
+  <li *ngIf="user?.admin"><a class="subheader">{{Consts.Labels.adminMenu}}</a></li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstProject}}">Something Admin Menu1</a>
+  </li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstProject}}">Something Admin Menu2</a>
+  </li>
+  <!-- Master Maintenance -->
+  <li *ngIf="user?.admin"><div class="divider"></div></li>
+  <li *ngIf="user?.admin"><a class="subheader">{{Consts.Labels.masterMaintenance}}</a></li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstProject}}">{{Consts.Pages.mstProject}}</a>
+  </li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstProjectPersonnel}}">{{Consts.Pages.mstProjectPersonnel}}</a>
+  </li>
+  <li *ngIf="user?.admin" routerLinkActive="active">
+    <a routerLink="{{Consts.Paths.mstUser}}">{{Consts.Pages.mstUser}}</a>
+  </li>
+</ul>

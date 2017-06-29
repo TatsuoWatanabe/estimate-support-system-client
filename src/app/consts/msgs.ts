@@ -1,0 +1,23 @@
+export const Msgs = {
+  confirmSave(target: string) { return `${target}のデータを保存します。よろしいですか？`; },
+  confirmChangePass: 'パスワードを変更します。よろしいですか？',
+  confirmDiscard: '入力中のデータを破棄して保存された状態に戻します。よろしいですか？',
+  confirmDelete(target: string) { return `${target}のデータを削除します。よろしいですか？`; },
+  promptInput(target: string) { return `${target}を入力してください。`; },
+  saved: '保存しました。',
+  saveFailed: '保存できませんでした。',
+  deleted: '削除しました。',
+  deleteFailed: '削除できませんでした。',
+  noData: 'データがありません。',
+  noProjectData: '案件の登録がありません。',
+  noPermission: '権限がありません。',
+  getProjectFailed: '案件情報が取得できませんでした。',
+  loggedIn(displayName: string) { return `ようこそ、${displayName}さん`; },
+  loginFailed: 'ログインできませんでした。',
+  loggedOut: 'ログアウトしました。',
+  logoutFailed: 'ログアウトできませんでした。',
+  dataGridEmpty: 'No data to display',
+  serverError: 'サーバーエラー',
+  passwordChanged: 'パスワードを変更しました。',
+  passwordChangeFailed: 'パスワードを変更できませんでした。'
+};

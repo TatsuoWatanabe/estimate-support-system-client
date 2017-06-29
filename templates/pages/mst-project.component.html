@@ -1,0 +1,12 @@
+<page-title>{{Consts.Pages.mstProject}}</page-title>
+
+<div class="row">
+  <a routerLink="{{Consts.Paths.edit}}"
+    class="btn {{Consts.Colors.main}} btn-slim waves-effect waves-light right"
+  >{{Consts.Labels.new}}</a>
+</div><!--/.row -->
+
+<project-selector
+  [enableQueryParams]="true"
+  (onSelect)="gotoEdit($event)"
+></project-selector>

@@ -1,0 +1,34 @@
+<div *ngIf="project">
+  <page-title>{{Consts.Pages.mstProject}} - {{ isNew ? Consts.Labels.new : Consts.Labels.edit }}</page-title>
+
+  <!-- input form -->
+  <div class="row">
+    <div class="input-field col s12 m12 l8">
+      <input [(ngModel)]="project.name" type="text" id="project-name" maxlength="{{Consts.Limits.projectName.max}}" />
+      <label class="active" for="project-name">{{Consts.Labels.projectName}}:</label>
+      <p *ngFor="let errCode of invalids.name" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+    <div class="input-field col s12 m12 l4">
+      <input [(ngModel)]="project.projectCode" type="text" id="projectCode" maxlength="{{Consts.Limits.projectCode.max}}" />
+      <label class="active" for="projectCode">{{Consts.Labels.projectCode}}:</label>
+      <p *ngFor="let errCode of invalids.projectCode" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+  </div><!-- /.row -->
+  <div class="row">
+    <div class="input-field col s12 m12">
+      <textarea class="materialize-textarea" [(ngModel)]="project.note" id="projectNote" maxlength="{{Consts.Limits.projectNote.max}}"></textarea>
+      <label class="active" for="projectNote">{{Consts.Labels.projectNote}}:</label>
+      <p *ngFor="let errCode of invalids.projectNote" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+  </div><!-- /.row -->
+
+  <common-edit-btns
+    (clickBackBtn)="goBack()"
+    (clickSave)="onClickSave()"
+    (clickSaveOk)="save()"
+    (clickDelete)="onClickDelete()"
+    (clickDeleteOk)="delete()"
+    [dataName]="project.name"
+    [deletable]="!isNew"
+  ></common-edit-btns>
+</div>

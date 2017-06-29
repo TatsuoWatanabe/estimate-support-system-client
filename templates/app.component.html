@@ -1,0 +1,56 @@
+<ng2-slim-loading-bar [color]="Consts.Colors.slimLoadingBar" [height]="'0.2rem'"></ng2-slim-loading-bar>
+
+<modal-preloader [materializeActions]="modalLoaderActions">
+</modal-preloader>
+
+<change-password></change-password>
+
+<nav class="{{Consts.Colors.main}}">
+  <div class="nav-wrapper">
+    <!-- side-nav-menu Trigger -->
+    <a
+      *ngIf="user"
+      materialize="sideNav"
+      [materializeParams]="[{
+        closeOnClick:true,
+        edge: 'right'
+      }]"
+      class="right"
+      data-activates="side-nav-menu"
+    >
+      <i class="material-icons icon-big">menu</i>
+    </a>
+    <span class="brand-logo center">
+      <span class="hide-on-small-only">{{Consts.Pages.navbarTitle}}</span>
+      <span class="hide-on-small-only">{{Consts.Versions.edition}}</span>
+      <span class="hide-on-med-and-down">{{Consts.Versions.versionName}}</span>
+    </span>
+    <span class="brand-logo left show-on-small hide-on-med-and-up">
+      {{Consts.Pages.navbarTitle}}
+    </span>
+    <ul *ngIf="user" class="right">
+      <li>
+        <!-- Dropdown Trigger -->
+        <a materialize="dropdown" class="dropdown-button" data-activates="user-menu">
+          <i class="material-icons left">perm_identity</i>{{user?.displayName}}
+        </a>
+        <!-- Dropdown Structure -->
+        <ul id="user-menu" class="dropdown-content">
+          <li class="divider"></li>
+          <li><a class="red-text" routerLink="{{Consts.Paths.logout}}"><i class="material-icons left">person_pin</i>{{Consts.Labels.logout}}</a></li>
+          <li class="divider"></li>
+          <li><a (click)="changePassword.open()"><i class="material-icons left">lock</i>{{Consts.Labels.changePassword}}</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- side-nav-menu -->
+    <router-link-list
+      [idAttr]="'side-nav-menu'"
+      [classAttr]="'right side-nav'"
+    ></router-link-list>
+  </div><!-- /.nav-wrapper -->
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

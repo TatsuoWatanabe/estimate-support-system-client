@@ -1,0 +1,46 @@
+<div *ngIf="editUser">
+  <page-title>{{Consts.Pages.mstUser}} - {{ isNew ? Consts.Labels.new : Consts.Labels.edit }}</page-title>
+
+  <!-- input form -->
+  <div class="row">
+    <div class="input-field col s12 m12 l8">
+      <input [(ngModel)]="editUser.username" type="text" id="username" maxlength="{{Consts.Limits.username.max}}" [ngClass]="{'invalid': invalids.username}" />
+      <label class="active" for="username">{{Consts.Labels.username}}:</label>
+      <p *ngFor="let errCode of invalids.username" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+    <div class="input-field col s12 m12 l4">
+      <input [(ngModel)]="editUser.password" [disabled]="!isNew" type="password" id="password" maxlength="{{Consts.Limits.password.max}}" [ngClass]="{'invalid': invalids.password}" />
+      <label class="active" for="password">{{Consts.Labels.password}}:</label>
+      <p *ngFor="let errCode of invalids.password" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+  </div><!-- /.row -->
+  <div class="row">
+    <div class="input-field col s12 m12 l8">
+      <input [(ngModel)]="editUser.displayName" type="text" id="displayName" maxlength="{{Consts.Limits.displayName.max}}" [ngClass]="{'invalid': invalids.displayName}" />
+      <label class="active" for="displayName">{{Consts.Labels.displayName}}:</label>
+      <p *ngFor="let errCode of invalids.displayName" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+    <div class="input-field col s12 m12 l4">
+      <input [(ngModel)]="editUser.employeeCode" type="text" id="employeeCode" maxlength="{{Consts.Limits.employeeCode.max}}" [ngClass]="{'invalid': invalids.employeeCode}" />
+      <label class="active" for="employeeCode">{{Consts.Labels.employeeCode}}:</label>
+      <p *ngFor="let errCode of invalids.employeeCode" class="red-text">{{errCode | msgCode}}</p>
+    </div>
+  </div><!-- /.row -->
+  <div class="row">
+    <div class="input-field col s12">
+     <input [(ngModel)]="editUser.admin" type="checkbox" id="admin" />
+     <label for="admin">{{Consts.Labels.admin}}</label>
+    </div>
+  </div><!-- /.row -->
+
+  <common-edit-btns
+    (clickBackBtn)="goBack()"
+    (clickSave)="onClickSave()"
+    (clickSaveOk)="save()"
+    (clickDelete)="onClickDelete()"
+    (clickDeleteOk)="delete()"
+    [dataName]="editUser.username"
+    [deletable]="!isNew"
+  ></common-edit-btns>
+
+</div>

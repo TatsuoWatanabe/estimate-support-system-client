@@ -1,0 +1,71 @@
+<div *ngIf="project">
+  <page-title>{{Consts.Pages.mstProjectPersonnel}} - {{project.name}}</page-title>
+  <h5 class="teal-text text-darken-3">{{project.projectCode}}</h5>
+
+  <ul *ngIf="projectPersonnels?.length !== 0" class="collection">
+    <li *ngFor="let pp of projectPersonnels"
+      class="collection-item blue-text text-darken4"
+    >
+      <div class="row">
+        <div class="input-field col s12 m4">
+          <input readonly value="{{pp.userId?.displayName}}" (click)="openUserSelector(pp)" class="modal-trigger" type="text">
+          <label>{{Consts.Labels.personnelName}}</label>
+        </div>
+        <div class="input-field col s12 m3">
+          <!-- Month Selector From -->
+          <month-selector
+            [format]="Consts.Formats.displayYearMonth"
+            [selectValue]="pp.periodFrom"
+            [label]="Consts.Labels.periodFrom"
+            [format]="Consts.Formats.yearMonthDb"
+            [monthAgoFrom]="12"
+            [monthRange]="24"
+            (monthChanged)="monthChanged($event, pp, 'periodFrom')"
+          ></month-selector>
+        </div>
+        <div class="input-field col s12 m3">
+          <!-- Month Selector To -->
+          <month-selector
+            [format]="Consts.Formats.displayYearMonth"
+            [selectValue]="pp.periodTo"
+            [label]="Consts.Labels.periodEnd"
+            [format]="Consts.Formats.yearMonthDb"
+            [monthAgoFrom]="12"
+            [monthRange]="24"
+            (monthChanged)="monthChanged($event, pp, 'periodTo')"
+          ></month-selector>
+        </div>
+
+        <div class="input-field col s12 m2">
+          <a class="btn-floating waves-effect waves-light red right"
+            (click)="deleteRow(pp)"
+          ><i class="material-icons">close</i></a>
+        </div>
+
+      </div><!-- /.row -->
+    </li><!-- /*ngFor -->
+  </ul><!-- /.collection -->
+  <div *ngIf="projectPersonnels?.length === 0">{{Consts.Msgs.noData}}</div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <a class="add-btn btn-floating waves-effect waves-light light-blue right"
+        (click)="addRow()"
+      ><i class="material-icons">add</i></a>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <modal-user-selector
+    [classAttr]=""
+    (onSelect)="onSelectUser($event)"
+  ></modal-user-selector>
+
+  <common-edit-btns
+    (clickBackBtn)="goBack()"
+    (clickSave)="onClickSave()"
+    (clickSaveOk)="save()"
+    [dataName]="project.name"
+    [deletable]="false"
+  ></common-edit-btns>
+</div>

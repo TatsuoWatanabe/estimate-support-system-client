@@ -1,0 +1,24 @@
+<page-title>{{Consts.Pages.login}}</page-title>
+
+<div class="row">
+  <div class="input-field col s12 m4">
+    <input [(ngModel)]="fields.username" id="username-field" type="text">
+    <label for="username-field">User Name</label>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="input-field col s12 m4">
+    <input [(ngModel)]="fields.password" id="password-field" type="password">
+    <label for="password-field">Password</label>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="input-field col s12 m4">
+    <button
+      (click)="login()"
+      class="btn {{Consts.Colors.main}} btn-slim waves-effect waves-light right"
+    >{{Consts.Labels.send}}</button>
+  </div>
+</div><!--/.row -->
