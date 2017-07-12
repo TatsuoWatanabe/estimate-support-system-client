@@ -37,13 +37,13 @@ module.exports = {
       // loader config for angular component styles 
       {
         test: /\.(scss|css)$/,
-        exclude: [/src\/scss\/styles.scss/],  // don't include global scss files.
+        exclude: [/styles.scss/],  // don't include global scss files.
         use: ['raw-loader','sass-loader'], // don't use css-loader for ng2 （unusual）
       },
       // loader config for global css files
       {
         test: /\.scss$/,
-        include: [/src\/scss\/styles.scss/], // only for 'scss/styles.scss'
+        include: [/styles.scss/], // only for 'scss/styles.scss'
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
